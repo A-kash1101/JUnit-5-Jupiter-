@@ -4,6 +4,8 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.example.revString.*;
 
@@ -24,6 +26,17 @@ class AppTest {
             assertEquals(rev(inputs[i]), expectedOutcome[i]);
         }
     }
+
+    @ParameterizedTest
+    @CsvSource({
+        "Akash, hsakA",
+        "Hello, olleH",
+        "RACECAR, RaCECAR"
+    })
+    void testWithParameterizedTest(String input, String expected){
+        assertEquals(expected, rev(input));
+    }
+
 
 
     // @Test
