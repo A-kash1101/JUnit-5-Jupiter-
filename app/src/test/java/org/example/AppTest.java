@@ -34,7 +34,14 @@ class AppTest {
         "RACECAR, RaCECAR"
     })
     void testWithParameterizedTest(String input, String expected){
-        assertEquals(expected, rev(input));
+        assertEquals(expected, rev(input), ()-> input+" failed");
+    }
+
+    @Test
+    void testCase(){
+        assertEquals(10, 9, ()->{
+            return ("Hello");
+        });
     }
 
 

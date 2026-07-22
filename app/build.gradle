@@ -45,3 +45,17 @@ application {
     // Define the main class for the application.
     mainClass = 'org.example.App'
 }
+
+tasks.named('test') {
+    testLogging {
+        // Tells Gradle to explicitly print out failures and standard text streams
+        events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
+        
+        // Show exactly what caused the exception and where
+        exceptionFormat = "FULL"
+        showExceptions = true
+        showCauses = true
+        showStackTraces = true
+    }
+}
+
